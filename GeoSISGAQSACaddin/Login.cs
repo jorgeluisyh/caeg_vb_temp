@@ -17,10 +17,9 @@ namespace GeoSISGAQSACaddin
         {
             InitializeComponent();
         }
-
-        private void tbx_user_GotFocus(object sender, EventArgs e)
+        private void tbx_user_Enter(object sender, EventArgs e)
         {
-            if(tbx_user.Text == "USERNAME")
+            if (tbx_user.Text == "USERNAME")
             {
                 tbx_user.ForeColor = Color.Black;
                 tbx_user.Text = "";
@@ -28,16 +27,18 @@ namespace GeoSISGAQSACaddin
 
         }
 
-        private void tbx_user_LostFocus(object sender, EventArgs e)
+        private void tbx_user_Leave(object sender, EventArgs e)
         {
-            if (tbx_user.Text == null)
+            if (tbx_user.Text == "")
             {
                 tbx_user.ForeColor = Color.Gray;
                 tbx_user.Text = "USERNAME";
             }
-        }
 
-        private void tbx_pass_GotFocus(object sender, EventArgs e)
+        }
+       
+
+        private void tbx_pass_Enter(object sender, EventArgs e)
         {
             if (tbx_pass.Text == "PASSWORD")
             {
@@ -48,14 +49,15 @@ namespace GeoSISGAQSACaddin
 
         }
 
-        private void tbx_pass_LostFocus(object sender, EventArgs e)
+        private void tbx_pass_Leave(object sender, EventArgs e)
         {
-            if (tbx_pass.Text == null)
+            if (tbx_pass.Text == "")
             {
                 tbx_pass.UseSystemPasswordChar = false;
                 tbx_pass.ForeColor = Color.Gray;
                 tbx_pass.Text = "PASSWORD";
             }
+
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace GeoSISGAQSACaddin
 
             if (iniciar_sesion())
             {
-                modulosDict.Add(1, "Generar Plano");
+                modulosDict.Add(1, "Ajuste de Siniestro");
                 Form Modulosform = new Modulos();
                 openFormByName(Modulosform, this.Parent);
                 lbl_login.Text = "";
@@ -88,5 +90,6 @@ namespace GeoSISGAQSACaddin
             }
             return false;
         }
+
     }
 }

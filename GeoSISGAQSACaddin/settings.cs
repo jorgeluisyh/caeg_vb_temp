@@ -39,6 +39,7 @@ namespace GeoSISGAQSACaddin
         public static string user;
         public static string pass;
         public static int currentModule;
+        public static string currentModuleName;
         public static Dictionary<int, string> modulosDict = new Dictionary<int, string>();
         public static int controller_sesion = 0;
         public static string python_path;
